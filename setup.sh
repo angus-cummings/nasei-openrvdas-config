@@ -24,11 +24,11 @@ install_packages
 
 # Capture where we're running from
 script_dir=$(dirname "$(realpath "${BASH_SOURCE[0]}")")
-openrvdas_dir=/opt/openrvdas_DPC
+openrvdas_dir=/opt/openrvdas
 
 # Get OpenRVDAS from the DPC repo and run OpenRVDAS setup script.
 cd /opt/
-mkdir -p openrvdas_DPC
+mkdir -p openrvdas
 git clone https://github.com/OceanDataTools/openrvdas.git openrvdas_DPC
 source $openrvdas_dir/utils/install_openrvdas.sh
 
