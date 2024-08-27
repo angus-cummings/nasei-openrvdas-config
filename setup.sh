@@ -4,6 +4,24 @@
 # 1. Rocky Linux 8 installed
 # 2. nasei-openrvdas-config has been pulled
 
+# Function to install Git
+install_packages() {
+  if [ -x "$(command -v apt)" ]; then
+    sudo apt update
+    sudo apt install -y git
+  elif [ -x "$(command -v yum)" ]; then
+    sudo yum install -y git
+  elif [ -x "$(command -v dnf)" ]; then
+    sudo dnf install -y git
+  else
+    echo "Unsupported package manager. Please install Git manually."
+    exit 1
+  fi
+}
+
+# Run the function
+install_packages
+
 # Capture where we're running from
 script_dir=$(dirname "$(realpath "${BASH_SOURCE[0]}")")
 openrvdas_dir=/opt/openrvdas_DPC
