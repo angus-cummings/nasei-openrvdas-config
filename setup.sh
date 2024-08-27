@@ -36,7 +36,7 @@ source $openrvdas_dir/utils/install_openrvdas.sh
 ln -s $script_dir $openrvdas_dir/local/nasei
 
 URL="http://localhost/api/load-configuration-file/"
-DATA='{\'target_file\':\'$script_dir/config.yaml\'}'
+DATA="{target_file':'$script_dir/config.yaml'}"
 
 curl -v -X PUT $URL \
      -H "Content-Type: application/json" \
