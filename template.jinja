@@ -1,0 +1,53 @@
+
+cruise:
+  id: 'nuyina-perpetual'
+
+loggers:
+  {% for device in devices %}
+  {{ device }}:
+    configs:
+    - {{ device }}->off
+    - {{ device }}->on
+  {% endfor %}
+
+modes:
+  'off':
+    {% for device in devices %}
+    {{ device }}:  {{ device }}->off
+    {% endfor %}
+  'on':
+    {% for device in devices %}
+    {{ device }}:  {{ device }}->on
+    {% endfor %}
+
+default_mode: "on"
+
+configs:
+  {% for device in devices %}
+  {{device}}->off:
+    name: {{ device }}->off
+  {{ device }}->on:
+    name: {{ device }}->on
+    readers:
+      - class: UDPReader
+      kwargs:
+        port: {{ devices[device]["port"] }}
+        {% if devices[device]["eol"] %}
+        eol: {{ devices[device]["eol"] }}
+        {% endif %}
+    writers:
+      - class: LogfileWriter
+        kwargs:
+          filebase: {{ file_root }}/raw/{{ device }}
+      - class: ComposedWriter
+        kwargs:
+          transforms:
+            - class: PrefixTransform
+              kwargs:
+                prefix: {{ device }}
+          writers:
+            - class: UDPWriter
+              kwargs:
+                destination: {{ AAD_broadcast_ip }}
+                port: {{ AAD_broadcast_port }}
+  {% endfor %}

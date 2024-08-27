@@ -1,0 +1,154 @@
+file_root: /data
+AAD_broadcast_ip: 172.16.29.250
+AAD_broadcast_port: 61400
+
+devices:
+  # Aerosol Bypass Pump Controller
+  aerosol_bypass_pump_controller:
+    port: 51041
+    source: 192.168.0.104
+  # GHG Bypass Pump Controller
+  ghg_bypass_pump_controller:
+    port: 51042
+    source: 192.168.0.104
+  # Exhaust Pump Controller
+  exhaust_pump_controller:
+    port: 51043
+    source: 192.168.0.104
+
+  # Dry Air Supply Dew Point
+  dry_air_supply_dew_point:
+    port: 51031
+    source: 192.168.0.103
+  # Dry Air Supply Pressure
+  dry_air_supply_pressure:
+    port: 51032
+    source: 192.168.0.103
+
+  # Sizing and Distribution Dry Air MFC
+  sizing_distribution_dry_air_mfc:
+    port: 51001
+    source: 192.168.0.100
+  # Sizing and Distribution Bypass MFC
+  sizing_distribution_bypass_mfc:
+    port: 51002
+    source: 192.168.0.100
+  # Radiative Properties Dry Air MFC
+  radiative_properties_dry_air_mfc:
+    port: 51003
+    source: 192.168.0.100
+  # Radiative Properties Bypass MFC
+  radiative_properties_bypass_mfc:
+    port: 51004
+    source: 192.168.0.100
+
+  # Radiative Properties Sample Line TRH
+  radiative_properties_sample_line_trh:
+    port: 51011
+    source: 192.168.0.101
+  # Sizing and Distribution Sample Line TRH
+  sizing_distribution_sample_line_trh:
+    port: 51012
+    source: 192.168.0.101
+  # Aerosol Manifold TRH
+  aerosol_manifold_trh:
+    port: 51013
+    source: 192.168.0.101
+  # GHG Manifold TRH
+  ghg_manifold_trh:
+    port: 51014
+    source: 192.168.0.101
+
+  # Aerosol Manifold Pressure
+  aerosol_manifold_pressure:
+    port: 51021
+    source: 192.168.0.102
+  # GHG Manifold Pressure
+  ghg_manifold_pressure:
+    port: 51022
+    source: 192.168.0.102
+  
+incomplete:
+  # Aerosol Manifold Water Detector
+  aerosol_manifold_water_detector:
+    port: 
+    source: 192.168.0.120 
+  # GHG Manifold Water Detector
+  ghg_manifold_water_detector:
+    port: 
+    source: 192.168.0.120
+
+  # Ozone Water detector
+  ozone_water_detector:
+    port: 
+    source: 192.168.0.121
+  # Radon Water detector
+  radon_water_detector:
+    port: 
+    source: 192.168.0.121
+
+  # Aerosols Inlet Heat Controller 1
+  aerosols_inlet_heat_controller_1:
+    port: 
+    source: 
+  # Aerosols Inlet Heat Controller 2
+  aerosols_inlet_heat_controller_2:
+    port: 
+    source: 
+  # Aerosols Downtube Heat Controller 1
+  aerosols_downtube_heat_controller_1:
+    port: 
+    source: 
+  # Aerosols Downtube Heat Controller 1
+  aerosols_downtube_heat_controller_2:
+    port: 
+    source: 
+  # GHG Inlet Heat Controller 1
+  ghg_inlet_heat_controller_1:
+    port: 
+    source: 
+  # GHG Inlet Heat Controller 2
+  ghg_inlet_heat_controller_2:
+    port: 
+    source: 
+  # Heat controller 1
+  heat_controller_1:
+    port: 
+    source: 
+  # Heat controller 2
+  heat_controller_2:
+    port: 
+    source: 
+  # Heat controller 3
+  heat_controller_3:
+    port: 
+    source: 
+  # Heat controller 4
+  heat_controller_4:
+    port: 
+    source: 
+  # Heat controller 5
+  heat_controller_5:
+    port: 
+    source: 
+  # Heat controller 6
+  heat_controller_6:
+    port: 
+    source: 
+
+  # Radon bypass valve
+  radon_bypass_valve_1:
+    port: 
+    source: 
+  # Radon bypass valve
+  radon_bypass_valve_2:
+    port: 
+    source: 
+  # Vacuum Pump
+  vacuum_pump:
+    port: 
+    source: 
+  # Swirlmaster Flowmeter
+  swirlmaster_flowmeter:
+    port: 
+    source: 

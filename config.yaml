@@ -1,0 +1,448 @@
+
+cruise:
+  id: 'nuyina-perpetual'
+
+loggers:
+  aerosol_bypass_pump_controller:
+    configs:
+    - aerosol_bypass_pump_controller->off
+    - aerosol_bypass_pump_controller->on
+  ghg_bypass_pump_controller:
+    configs:
+    - ghg_bypass_pump_controller->off
+    - ghg_bypass_pump_controller->on
+  exhaust_pump_controller:
+    configs:
+    - exhaust_pump_controller->off
+    - exhaust_pump_controller->on
+  dry_air_supply_dew_point:
+    configs:
+    - dry_air_supply_dew_point->off
+    - dry_air_supply_dew_point->on
+  dry_air_supply_pressure:
+    configs:
+    - dry_air_supply_pressure->off
+    - dry_air_supply_pressure->on
+  sizing_distribution_dry_air_mfc:
+    configs:
+    - sizing_distribution_dry_air_mfc->off
+    - sizing_distribution_dry_air_mfc->on
+  sizing_distribution_bypass_mfc:
+    configs:
+    - sizing_distribution_bypass_mfc->off
+    - sizing_distribution_bypass_mfc->on
+  radiative_properties_dry_air_mfc:
+    configs:
+    - radiative_properties_dry_air_mfc->off
+    - radiative_properties_dry_air_mfc->on
+  radiative_properties_bypass_mfc:
+    configs:
+    - radiative_properties_bypass_mfc->off
+    - radiative_properties_bypass_mfc->on
+  radiative_properties_sample_line_trh:
+    configs:
+    - radiative_properties_sample_line_trh->off
+    - radiative_properties_sample_line_trh->on
+  sizing_distribution_sample_line_trh:
+    configs:
+    - sizing_distribution_sample_line_trh->off
+    - sizing_distribution_sample_line_trh->on
+  aerosol_manifold_trh:
+    configs:
+    - aerosol_manifold_trh->off
+    - aerosol_manifold_trh->on
+  ghg_manifold_trh:
+    configs:
+    - ghg_manifold_trh->off
+    - ghg_manifold_trh->on
+  aerosol_manifold_pressure:
+    configs:
+    - aerosol_manifold_pressure->off
+    - aerosol_manifold_pressure->on
+  ghg_manifold_pressure:
+    configs:
+    - ghg_manifold_pressure->off
+    - ghg_manifold_pressure->on
+
+modes:
+  'off':
+    aerosol_bypass_pump_controller:  aerosol_bypass_pump_controller->off
+    ghg_bypass_pump_controller:  ghg_bypass_pump_controller->off
+    exhaust_pump_controller:  exhaust_pump_controller->off
+    dry_air_supply_dew_point:  dry_air_supply_dew_point->off
+    dry_air_supply_pressure:  dry_air_supply_pressure->off
+    sizing_distribution_dry_air_mfc:  sizing_distribution_dry_air_mfc->off
+    sizing_distribution_bypass_mfc:  sizing_distribution_bypass_mfc->off
+    radiative_properties_dry_air_mfc:  radiative_properties_dry_air_mfc->off
+    radiative_properties_bypass_mfc:  radiative_properties_bypass_mfc->off
+    radiative_properties_sample_line_trh:  radiative_properties_sample_line_trh->off
+    sizing_distribution_sample_line_trh:  sizing_distribution_sample_line_trh->off
+    aerosol_manifold_trh:  aerosol_manifold_trh->off
+    ghg_manifold_trh:  ghg_manifold_trh->off
+    aerosol_manifold_pressure:  aerosol_manifold_pressure->off
+    ghg_manifold_pressure:  ghg_manifold_pressure->off
+  'on':
+    aerosol_bypass_pump_controller:  aerosol_bypass_pump_controller->on
+    ghg_bypass_pump_controller:  ghg_bypass_pump_controller->on
+    exhaust_pump_controller:  exhaust_pump_controller->on
+    dry_air_supply_dew_point:  dry_air_supply_dew_point->on
+    dry_air_supply_pressure:  dry_air_supply_pressure->on
+    sizing_distribution_dry_air_mfc:  sizing_distribution_dry_air_mfc->on
+    sizing_distribution_bypass_mfc:  sizing_distribution_bypass_mfc->on
+    radiative_properties_dry_air_mfc:  radiative_properties_dry_air_mfc->on
+    radiative_properties_bypass_mfc:  radiative_properties_bypass_mfc->on
+    radiative_properties_sample_line_trh:  radiative_properties_sample_line_trh->on
+    sizing_distribution_sample_line_trh:  sizing_distribution_sample_line_trh->on
+    aerosol_manifold_trh:  aerosol_manifold_trh->on
+    ghg_manifold_trh:  ghg_manifold_trh->on
+    aerosol_manifold_pressure:  aerosol_manifold_pressure->on
+    ghg_manifold_pressure:  ghg_manifold_pressure->on
+
+default_mode: "on"
+
+configs:
+  aerosol_bypass_pump_controller->off:
+    name: aerosol_bypass_pump_controller->off
+  aerosol_bypass_pump_controller->on:
+    name: aerosol_bypass_pump_controller->on
+    readers:
+      - class: UDPReader
+      kwargs:
+        port: 51041
+    writers:
+      - class: LogfileWriter
+        kwargs:
+          filebase: /data/raw/aerosol_bypass_pump_controller
+      - class: ComposedWriter
+        kwargs:
+          transforms:
+            - class: PrefixTransform
+              kwargs:
+                prefix: aerosol_bypass_pump_controller
+          writers:
+            - class: UDPWriter
+              kwargs:
+                destination: 172.16.29.250
+                port: 61400
+  ghg_bypass_pump_controller->off:
+    name: ghg_bypass_pump_controller->off
+  ghg_bypass_pump_controller->on:
+    name: ghg_bypass_pump_controller->on
+    readers:
+      - class: UDPReader
+      kwargs:
+        port: 51042
+    writers:
+      - class: LogfileWriter
+        kwargs:
+          filebase: /data/raw/ghg_bypass_pump_controller
+      - class: ComposedWriter
+        kwargs:
+          transforms:
+            - class: PrefixTransform
+              kwargs:
+                prefix: ghg_bypass_pump_controller
+          writers:
+            - class: UDPWriter
+              kwargs:
+                destination: 172.16.29.250
+                port: 61400
+  exhaust_pump_controller->off:
+    name: exhaust_pump_controller->off
+  exhaust_pump_controller->on:
+    name: exhaust_pump_controller->on
+    readers:
+      - class: UDPReader
+      kwargs:
+        port: 51043
+    writers:
+      - class: LogfileWriter
+        kwargs:
+          filebase: /data/raw/exhaust_pump_controller
+      - class: ComposedWriter
+        kwargs:
+          transforms:
+            - class: PrefixTransform
+              kwargs:
+                prefix: exhaust_pump_controller
+          writers:
+            - class: UDPWriter
+              kwargs:
+                destination: 172.16.29.250
+                port: 61400
+  dry_air_supply_dew_point->off:
+    name: dry_air_supply_dew_point->off
+  dry_air_supply_dew_point->on:
+    name: dry_air_supply_dew_point->on
+    readers:
+      - class: UDPReader
+      kwargs:
+        port: 51031
+    writers:
+      - class: LogfileWriter
+        kwargs:
+          filebase: /data/raw/dry_air_supply_dew_point
+      - class: ComposedWriter
+        kwargs:
+          transforms:
+            - class: PrefixTransform
+              kwargs:
+                prefix: dry_air_supply_dew_point
+          writers:
+            - class: UDPWriter
+              kwargs:
+                destination: 172.16.29.250
+                port: 61400
+  dry_air_supply_pressure->off:
+    name: dry_air_supply_pressure->off
+  dry_air_supply_pressure->on:
+    name: dry_air_supply_pressure->on
+    readers:
+      - class: UDPReader
+      kwargs:
+        port: 51032
+    writers:
+      - class: LogfileWriter
+        kwargs:
+          filebase: /data/raw/dry_air_supply_pressure
+      - class: ComposedWriter
+        kwargs:
+          transforms:
+            - class: PrefixTransform
+              kwargs:
+                prefix: dry_air_supply_pressure
+          writers:
+            - class: UDPWriter
+              kwargs:
+                destination: 172.16.29.250
+                port: 61400
+  sizing_distribution_dry_air_mfc->off:
+    name: sizing_distribution_dry_air_mfc->off
+  sizing_distribution_dry_air_mfc->on:
+    name: sizing_distribution_dry_air_mfc->on
+    readers:
+      - class: UDPReader
+      kwargs:
+        port: 51001
+    writers:
+      - class: LogfileWriter
+        kwargs:
+          filebase: /data/raw/sizing_distribution_dry_air_mfc
+      - class: ComposedWriter
+        kwargs:
+          transforms:
+            - class: PrefixTransform
+              kwargs:
+                prefix: sizing_distribution_dry_air_mfc
+          writers:
+            - class: UDPWriter
+              kwargs:
+                destination: 172.16.29.250
+                port: 61400
+  sizing_distribution_bypass_mfc->off:
+    name: sizing_distribution_bypass_mfc->off
+  sizing_distribution_bypass_mfc->on:
+    name: sizing_distribution_bypass_mfc->on
+    readers:
+      - class: UDPReader
+      kwargs:
+        port: 51002
+    writers:
+      - class: LogfileWriter
+        kwargs:
+          filebase: /data/raw/sizing_distribution_bypass_mfc
+      - class: ComposedWriter
+        kwargs:
+          transforms:
+            - class: PrefixTransform
+              kwargs:
+                prefix: sizing_distribution_bypass_mfc
+          writers:
+            - class: UDPWriter
+              kwargs:
+                destination: 172.16.29.250
+                port: 61400
+  radiative_properties_dry_air_mfc->off:
+    name: radiative_properties_dry_air_mfc->off
+  radiative_properties_dry_air_mfc->on:
+    name: radiative_properties_dry_air_mfc->on
+    readers:
+      - class: UDPReader
+      kwargs:
+        port: 51003
+    writers:
+      - class: LogfileWriter
+        kwargs:
+          filebase: /data/raw/radiative_properties_dry_air_mfc
+      - class: ComposedWriter
+        kwargs:
+          transforms:
+            - class: PrefixTransform
+              kwargs:
+                prefix: radiative_properties_dry_air_mfc
+          writers:
+            - class: UDPWriter
+              kwargs:
+                destination: 172.16.29.250
+                port: 61400
+  radiative_properties_bypass_mfc->off:
+    name: radiative_properties_bypass_mfc->off
+  radiative_properties_bypass_mfc->on:
+    name: radiative_properties_bypass_mfc->on
+    readers:
+      - class: UDPReader
+      kwargs:
+        port: 51004
+    writers:
+      - class: LogfileWriter
+        kwargs:
+          filebase: /data/raw/radiative_properties_bypass_mfc
+      - class: ComposedWriter
+        kwargs:
+          transforms:
+            - class: PrefixTransform
+              kwargs:
+                prefix: radiative_properties_bypass_mfc
+          writers:
+            - class: UDPWriter
+              kwargs:
+                destination: 172.16.29.250
+                port: 61400
+  radiative_properties_sample_line_trh->off:
+    name: radiative_properties_sample_line_trh->off
+  radiative_properties_sample_line_trh->on:
+    name: radiative_properties_sample_line_trh->on
+    readers:
+      - class: UDPReader
+      kwargs:
+        port: 51011
+    writers:
+      - class: LogfileWriter
+        kwargs:
+          filebase: /data/raw/radiative_properties_sample_line_trh
+      - class: ComposedWriter
+        kwargs:
+          transforms:
+            - class: PrefixTransform
+              kwargs:
+                prefix: radiative_properties_sample_line_trh
+          writers:
+            - class: UDPWriter
+              kwargs:
+                destination: 172.16.29.250
+                port: 61400
+  sizing_distribution_sample_line_trh->off:
+    name: sizing_distribution_sample_line_trh->off
+  sizing_distribution_sample_line_trh->on:
+    name: sizing_distribution_sample_line_trh->on
+    readers:
+      - class: UDPReader
+      kwargs:
+        port: 51012
+    writers:
+      - class: LogfileWriter
+        kwargs:
+          filebase: /data/raw/sizing_distribution_sample_line_trh
+      - class: ComposedWriter
+        kwargs:
+          transforms:
+            - class: PrefixTransform
+              kwargs:
+                prefix: sizing_distribution_sample_line_trh
+          writers:
+            - class: UDPWriter
+              kwargs:
+                destination: 172.16.29.250
+                port: 61400
+  aerosol_manifold_trh->off:
+    name: aerosol_manifold_trh->off
+  aerosol_manifold_trh->on:
+    name: aerosol_manifold_trh->on
+    readers:
+      - class: UDPReader
+      kwargs:
+        port: 51013
+    writers:
+      - class: LogfileWriter
+        kwargs:
+          filebase: /data/raw/aerosol_manifold_trh
+      - class: ComposedWriter
+        kwargs:
+          transforms:
+            - class: PrefixTransform
+              kwargs:
+                prefix: aerosol_manifold_trh
+          writers:
+            - class: UDPWriter
+              kwargs:
+                destination: 172.16.29.250
+                port: 61400
+  ghg_manifold_trh->off:
+    name: ghg_manifold_trh->off
+  ghg_manifold_trh->on:
+    name: ghg_manifold_trh->on
+    readers:
+      - class: UDPReader
+      kwargs:
+        port: 51014
+    writers:
+      - class: LogfileWriter
+        kwargs:
+          filebase: /data/raw/ghg_manifold_trh
+      - class: ComposedWriter
+        kwargs:
+          transforms:
+            - class: PrefixTransform
+              kwargs:
+                prefix: ghg_manifold_trh
+          writers:
+            - class: UDPWriter
+              kwargs:
+                destination: 172.16.29.250
+                port: 61400
+  aerosol_manifold_pressure->off:
+    name: aerosol_manifold_pressure->off
+  aerosol_manifold_pressure->on:
+    name: aerosol_manifold_pressure->on
+    readers:
+      - class: UDPReader
+      kwargs:
+        port: 51021
+    writers:
+      - class: LogfileWriter
+        kwargs:
+          filebase: /data/raw/aerosol_manifold_pressure
+      - class: ComposedWriter
+        kwargs:
+          transforms:
+            - class: PrefixTransform
+              kwargs:
+                prefix: aerosol_manifold_pressure
+          writers:
+            - class: UDPWriter
+              kwargs:
+                destination: 172.16.29.250
+                port: 61400
+  ghg_manifold_pressure->off:
+    name: ghg_manifold_pressure->off
+  ghg_manifold_pressure->on:
+    name: ghg_manifold_pressure->on
+    readers:
+      - class: UDPReader
+      kwargs:
+        port: 51022
+    writers:
+      - class: LogfileWriter
+        kwargs:
+          filebase: /data/raw/ghg_manifold_pressure
+      - class: ComposedWriter
+        kwargs:
+          transforms:
+            - class: PrefixTransform
+              kwargs:
+                prefix: ghg_manifold_pressure
+          writers:
+            - class: UDPWriter
+              kwargs:
+                destination: 172.16.29.250
+                port: 61400
