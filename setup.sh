@@ -29,15 +29,20 @@ openrvdas_dir=/opt/openrvdas
 # Get OpenRVDAS from the DPC repo and run OpenRVDAS setup script.
 cd /opt/
 mkdir -p openrvdas
-git clone https://github.com/OceanDataTools/openrvdas.git openrvdas_DPC
+git clone https://github.com/OceanDataTools/openrvdas.git $openrvdas_dir
 source $openrvdas_dir/utils/install_openrvdas.sh
 
 # Link the nasei config into /opt/openrvdas/local
 ln -s $script_dir $openrvdas_dir/local/nasei
+chown -R rvdas:rvdas $openrvdas_dir/local/nasei 
 
 URL="http://localhost/api/load-configuration-file/"
-DATA='{\'target_file\':\'$script_dir/config.yaml\'}'
+DATA="{\"target_file\":\"$script_dir/config.yaml\"}"
 
-curl -v -X PUT $URL \
+echo "We are about to upload the config file for OpenRVDAS, but it requires HTTP authentication."
+echo "When prompted enter the password for OpenRVDAS configuration."
+
+curl -v -u rvdas \
+     $URL \
      -H "Content-Type: application/json" \
      -d $DATA

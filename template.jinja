@@ -3,7 +3,7 @@ cruise:
   id: 'nuyina-perpetual'
 
 loggers:
-  {% for device in devices %}
+  {% for device in devices|sort %}
   {{ device }}:
     configs:
     - {{ device }}->off
@@ -12,29 +12,29 @@ loggers:
 
 modes:
   'off':
-    {% for device in devices %}
+    {% for device in devices|sort %}
     {{ device }}:  {{ device }}->off
     {% endfor %}
   'on':
-    {% for device in devices %}
+    {% for device in devices|sort %}
     {{ device }}:  {{ device }}->on
     {% endfor %}
 
 default_mode: "on"
 
 configs:
-  {% for device in devices %}
+  {% for device in devices|sort %}
   {{device}}->off:
     name: {{ device }}->off
   {{ device }}->on:
     name: {{ device }}->on
     readers:
       - class: UDPReader
-      kwargs:
-        port: {{ devices[device]["port"] }}
-        {% if devices[device]["eol"] %}
-        eol: {{ devices[device]["eol"] }}
-        {% endif %}
+        kwargs:
+          port: {{ devices[device]["port"] }}
+          {% if devices[device]["eol"] %}
+          eol: {{ devices[device]["eol"] }}
+          {% endif %}
     writers:
       - class: LogfileWriter
         kwargs:

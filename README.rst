@@ -6,3 +6,11 @@ To regenerate the config file if definitions change simply run
 .. code-block:: bash
     . /opt/openrvdas/venv/bin/activate
     python3 config_generator.py
+
+******
+TODOS:
+******
+
+ * Get a USB<->NIC, get MAC, configure one port for local and one port for science data
+ * configure /data
+ * documentation
