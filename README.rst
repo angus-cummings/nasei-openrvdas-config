@@ -11,6 +11,5 @@ To regenerate the config file if definitions change simply run
 TODOS:
 ******
 
- * Get a USB<->NIC, get MAC, configure one port for local and one port for science data
- * configure /data
+ * configure /data access for AADC
  * documentation
