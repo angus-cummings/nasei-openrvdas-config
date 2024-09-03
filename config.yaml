@@ -109,12 +109,15 @@ configs:
       - class: UDPReader
         kwargs:
           port: 51041
-    transforms:
-      - class: TimestampTransform
     writers:
-      - class: LogfileWriter
+      - class: ComposedWriter
         kwargs:
-          filebase: /data/raw/aerosol_bypass_pump_controller
+          transforms:
+            - class: TimestampTransform
+          writers:
+            - class: LogfileWriter
+              kwargs:
+                filebase: /data/raw/aerosol_bypass_pump_controller
       - class: ComposedWriter
         kwargs:
           transforms:
@@ -124,7 +127,7 @@ configs:
           writers:
             - class: UDPWriter
               kwargs:
-                destination: 172.16.29.254
+                destination: 172.16.29.255
                 port: 61401
   aerosol_manifold_pressure->off:
     name: aerosol_manifold_pressure->off
@@ -134,12 +137,15 @@ configs:
       - class: UDPReader
         kwargs:
           port: 51021
-    transforms:
-      - class: TimestampTransform
     writers:
-      - class: LogfileWriter
+      - class: ComposedWriter
         kwargs:
-          filebase: /data/raw/aerosol_manifold_pressure
+          transforms:
+            - class: TimestampTransform
+          writers:
+            - class: LogfileWriter
+              kwargs:
+                filebase: /data/raw/aerosol_manifold_pressure
       - class: ComposedWriter
         kwargs:
           transforms:
@@ -149,7 +155,7 @@ configs:
           writers:
             - class: UDPWriter
               kwargs:
-                destination: 172.16.29.254
+                destination: 172.16.29.255
                 port: 61401
   aerosol_manifold_trh->off:
     name: aerosol_manifold_trh->off
@@ -159,12 +165,15 @@ configs:
       - class: UDPReader
         kwargs:
           port: 51013
-    transforms:
-      - class: TimestampTransform
     writers:
-      - class: LogfileWriter
+      - class: ComposedWriter
         kwargs:
-          filebase: /data/raw/aerosol_manifold_trh
+          transforms:
+            - class: TimestampTransform
+          writers:
+            - class: LogfileWriter
+              kwargs:
+                filebase: /data/raw/aerosol_manifold_trh
       - class: ComposedWriter
         kwargs:
           transforms:
@@ -174,7 +183,7 @@ configs:
           writers:
             - class: UDPWriter
               kwargs:
-                destination: 172.16.29.254
+                destination: 172.16.29.255
                 port: 61401
   dry_air_supply_dew_point->off:
     name: dry_air_supply_dew_point->off
@@ -184,12 +193,15 @@ configs:
       - class: UDPReader
         kwargs:
           port: 51031
-    transforms:
-      - class: TimestampTransform
     writers:
-      - class: LogfileWriter
+      - class: ComposedWriter
         kwargs:
-          filebase: /data/raw/dry_air_supply_dew_point
+          transforms:
+            - class: TimestampTransform
+          writers:
+            - class: LogfileWriter
+              kwargs:
+                filebase: /data/raw/dry_air_supply_dew_point
       - class: ComposedWriter
         kwargs:
           transforms:
@@ -199,7 +211,7 @@ configs:
           writers:
             - class: UDPWriter
               kwargs:
-                destination: 172.16.29.254
+                destination: 172.16.29.255
                 port: 61401
   dry_air_supply_pressure->off:
     name: dry_air_supply_pressure->off
@@ -209,12 +221,15 @@ configs:
       - class: UDPReader
         kwargs:
           port: 51032
-    transforms:
-      - class: TimestampTransform
     writers:
-      - class: LogfileWriter
+      - class: ComposedWriter
         kwargs:
-          filebase: /data/raw/dry_air_supply_pressure
+          transforms:
+            - class: TimestampTransform
+          writers:
+            - class: LogfileWriter
+              kwargs:
+                filebase: /data/raw/dry_air_supply_pressure
       - class: ComposedWriter
         kwargs:
           transforms:
@@ -224,7 +239,7 @@ configs:
           writers:
             - class: UDPWriter
               kwargs:
-                destination: 172.16.29.254
+                destination: 172.16.29.255
                 port: 61401
   exhaust_pump_controller->off:
     name: exhaust_pump_controller->off
@@ -234,12 +249,15 @@ configs:
       - class: UDPReader
         kwargs:
           port: 51043
-    transforms:
-      - class: TimestampTransform
     writers:
-      - class: LogfileWriter
+      - class: ComposedWriter
         kwargs:
-          filebase: /data/raw/exhaust_pump_controller
+          transforms:
+            - class: TimestampTransform
+          writers:
+            - class: LogfileWriter
+              kwargs:
+                filebase: /data/raw/exhaust_pump_controller
       - class: ComposedWriter
         kwargs:
           transforms:
@@ -249,7 +267,7 @@ configs:
           writers:
             - class: UDPWriter
               kwargs:
-                destination: 172.16.29.254
+                destination: 172.16.29.255
                 port: 61401
   ghg_bypass_pump_controller->off:
     name: ghg_bypass_pump_controller->off
@@ -259,12 +277,15 @@ configs:
       - class: UDPReader
         kwargs:
           port: 51042
-    transforms:
-      - class: TimestampTransform
     writers:
-      - class: LogfileWriter
+      - class: ComposedWriter
         kwargs:
-          filebase: /data/raw/ghg_bypass_pump_controller
+          transforms:
+            - class: TimestampTransform
+          writers:
+            - class: LogfileWriter
+              kwargs:
+                filebase: /data/raw/ghg_bypass_pump_controller
       - class: ComposedWriter
         kwargs:
           transforms:
@@ -274,7 +295,7 @@ configs:
           writers:
             - class: UDPWriter
               kwargs:
-                destination: 172.16.29.254
+                destination: 172.16.29.255
                 port: 61401
   ghg_manifold_pressure->off:
     name: ghg_manifold_pressure->off
@@ -284,12 +305,15 @@ configs:
       - class: UDPReader
         kwargs:
           port: 51022
-    transforms:
-      - class: TimestampTransform
     writers:
-      - class: LogfileWriter
+      - class: ComposedWriter
         kwargs:
-          filebase: /data/raw/ghg_manifold_pressure
+          transforms:
+            - class: TimestampTransform
+          writers:
+            - class: LogfileWriter
+              kwargs:
+                filebase: /data/raw/ghg_manifold_pressure
       - class: ComposedWriter
         kwargs:
           transforms:
@@ -299,7 +323,7 @@ configs:
           writers:
             - class: UDPWriter
               kwargs:
-                destination: 172.16.29.254
+                destination: 172.16.29.255
                 port: 61401
   ghg_manifold_trh->off:
     name: ghg_manifold_trh->off
@@ -309,12 +333,15 @@ configs:
       - class: UDPReader
         kwargs:
           port: 51014
-    transforms:
-      - class: TimestampTransform
     writers:
-      - class: LogfileWriter
+      - class: ComposedWriter
         kwargs:
-          filebase: /data/raw/ghg_manifold_trh
+          transforms:
+            - class: TimestampTransform
+          writers:
+            - class: LogfileWriter
+              kwargs:
+                filebase: /data/raw/ghg_manifold_trh
       - class: ComposedWriter
         kwargs:
           transforms:
@@ -324,7 +351,7 @@ configs:
           writers:
             - class: UDPWriter
               kwargs:
-                destination: 172.16.29.254
+                destination: 172.16.29.255
                 port: 61401
   radiative_properties_bypass_mfc->off:
     name: radiative_properties_bypass_mfc->off
@@ -334,12 +361,15 @@ configs:
       - class: UDPReader
         kwargs:
           port: 51004
-    transforms:
-      - class: TimestampTransform
     writers:
-      - class: LogfileWriter
+      - class: ComposedWriter
         kwargs:
-          filebase: /data/raw/radiative_properties_bypass_mfc
+          transforms:
+            - class: TimestampTransform
+          writers:
+            - class: LogfileWriter
+              kwargs:
+                filebase: /data/raw/radiative_properties_bypass_mfc
       - class: ComposedWriter
         kwargs:
           transforms:
@@ -349,7 +379,7 @@ configs:
           writers:
             - class: UDPWriter
               kwargs:
-                destination: 172.16.29.254
+                destination: 172.16.29.255
                 port: 61401
   radiative_properties_dry_air_mfc->off:
     name: radiative_properties_dry_air_mfc->off
@@ -359,12 +389,15 @@ configs:
       - class: UDPReader
         kwargs:
           port: 51003
-    transforms:
-      - class: TimestampTransform
     writers:
-      - class: LogfileWriter
+      - class: ComposedWriter
         kwargs:
-          filebase: /data/raw/radiative_properties_dry_air_mfc
+          transforms:
+            - class: TimestampTransform
+          writers:
+            - class: LogfileWriter
+              kwargs:
+                filebase: /data/raw/radiative_properties_dry_air_mfc
       - class: ComposedWriter
         kwargs:
           transforms:
@@ -374,7 +407,7 @@ configs:
           writers:
             - class: UDPWriter
               kwargs:
-                destination: 172.16.29.254
+                destination: 172.16.29.255
                 port: 61401
   radiative_properties_sample_line_trh->off:
     name: radiative_properties_sample_line_trh->off
@@ -384,12 +417,15 @@ configs:
       - class: UDPReader
         kwargs:
           port: 51011
-    transforms:
-      - class: TimestampTransform
     writers:
-      - class: LogfileWriter
+      - class: ComposedWriter
         kwargs:
-          filebase: /data/raw/radiative_properties_sample_line_trh
+          transforms:
+            - class: TimestampTransform
+          writers:
+            - class: LogfileWriter
+              kwargs:
+                filebase: /data/raw/radiative_properties_sample_line_trh
       - class: ComposedWriter
         kwargs:
           transforms:
@@ -399,7 +435,7 @@ configs:
           writers:
             - class: UDPWriter
               kwargs:
-                destination: 172.16.29.254
+                destination: 172.16.29.255
                 port: 61401
   sizing_distribution_bypass_mfc->off:
     name: sizing_distribution_bypass_mfc->off
@@ -409,12 +445,15 @@ configs:
       - class: UDPReader
         kwargs:
           port: 51002
-    transforms:
-      - class: TimestampTransform
     writers:
-      - class: LogfileWriter
+      - class: ComposedWriter
         kwargs:
-          filebase: /data/raw/sizing_distribution_bypass_mfc
+          transforms:
+            - class: TimestampTransform
+          writers:
+            - class: LogfileWriter
+              kwargs:
+                filebase: /data/raw/sizing_distribution_bypass_mfc
       - class: ComposedWriter
         kwargs:
           transforms:
@@ -424,7 +463,7 @@ configs:
           writers:
             - class: UDPWriter
               kwargs:
-                destination: 172.16.29.254
+                destination: 172.16.29.255
                 port: 61401
   sizing_distribution_dry_air_mfc->off:
     name: sizing_distribution_dry_air_mfc->off
@@ -434,12 +473,15 @@ configs:
       - class: UDPReader
         kwargs:
           port: 51001
-    transforms:
-      - class: TimestampTransform
     writers:
-      - class: LogfileWriter
+      - class: ComposedWriter
         kwargs:
-          filebase: /data/raw/sizing_distribution_dry_air_mfc
+          transforms:
+            - class: TimestampTransform
+          writers:
+            - class: LogfileWriter
+              kwargs:
+                filebase: /data/raw/sizing_distribution_dry_air_mfc
       - class: ComposedWriter
         kwargs:
           transforms:
@@ -449,7 +491,7 @@ configs:
           writers:
             - class: UDPWriter
               kwargs:
-                destination: 172.16.29.254
+                destination: 172.16.29.255
                 port: 61401
   sizing_distribution_sample_line_trh->off:
     name: sizing_distribution_sample_line_trh->off
@@ -459,12 +501,15 @@ configs:
       - class: UDPReader
         kwargs:
           port: 51012
-    transforms:
-      - class: TimestampTransform
     writers:
-      - class: LogfileWriter
+      - class: ComposedWriter
         kwargs:
-          filebase: /data/raw/sizing_distribution_sample_line_trh
+          transforms:
+            - class: TimestampTransform
+          writers:
+            - class: LogfileWriter
+              kwargs:
+                filebase: /data/raw/sizing_distribution_sample_line_trh
       - class: ComposedWriter
         kwargs:
           transforms:
@@ -474,5 +519,5 @@ configs:
           writers:
             - class: UDPWriter
               kwargs:
-                destination: 172.16.29.254
+                destination: 172.16.29.255
                 port: 61401

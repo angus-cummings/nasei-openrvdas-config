@@ -35,12 +35,15 @@ configs:
           {% if devices[device]["eol"] %}
           eol: {{ devices[device]["eol"] }}
           {% endif %}
-    transforms:
-      - class: TimestampTransform
     writers:
-      - class: LogfileWriter
+      - class: ComposedWriter
         kwargs:
-          filebase: {{ file_root }}/raw/{{ device }}
+          transforms:
+            - class: TimestampTransform
+          writers:
+            - class: LogfileWriter
+              kwargs:
+                filebase: {{ file_root }}/raw/{{ device }}
       - class: ComposedWriter
         kwargs:
           transforms:

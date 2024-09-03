@@ -1,5 +1,5 @@
 file_root: /data
-AAD_broadcast_ip: 172.16.29.254
+AAD_broadcast_ip: 172.16.29.255
 AAD_broadcast_port: 61401
 
 devices:
