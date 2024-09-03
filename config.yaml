@@ -109,6 +109,8 @@ configs:
       - class: UDPReader
         kwargs:
           port: 51041
+    transforms:
+      - class: TimestampTransform
     writers:
       - class: LogfileWriter
         kwargs:
@@ -122,8 +124,8 @@ configs:
           writers:
             - class: UDPWriter
               kwargs:
-                destination: 172.16.29.250
-                port: 61400
+                destination: 172.16.29.254
+                port: 61401
   aerosol_manifold_pressure->off:
     name: aerosol_manifold_pressure->off
   aerosol_manifold_pressure->on:
@@ -132,6 +134,8 @@ configs:
       - class: UDPReader
         kwargs:
           port: 51021
+    transforms:
+      - class: TimestampTransform
     writers:
       - class: LogfileWriter
         kwargs:
@@ -145,8 +149,8 @@ configs:
           writers:
             - class: UDPWriter
               kwargs:
-                destination: 172.16.29.250
-                port: 61400
+                destination: 172.16.29.254
+                port: 61401
   aerosol_manifold_trh->off:
     name: aerosol_manifold_trh->off
   aerosol_manifold_trh->on:
@@ -155,6 +159,8 @@ configs:
       - class: UDPReader
         kwargs:
           port: 51013
+    transforms:
+      - class: TimestampTransform
     writers:
       - class: LogfileWriter
         kwargs:
@@ -168,8 +174,8 @@ configs:
           writers:
             - class: UDPWriter
               kwargs:
-                destination: 172.16.29.250
-                port: 61400
+                destination: 172.16.29.254
+                port: 61401
   dry_air_supply_dew_point->off:
     name: dry_air_supply_dew_point->off
   dry_air_supply_dew_point->on:
@@ -178,6 +184,8 @@ configs:
       - class: UDPReader
         kwargs:
           port: 51031
+    transforms:
+      - class: TimestampTransform
     writers:
       - class: LogfileWriter
         kwargs:
@@ -191,8 +199,8 @@ configs:
           writers:
             - class: UDPWriter
               kwargs:
-                destination: 172.16.29.250
-                port: 61400
+                destination: 172.16.29.254
+                port: 61401
   dry_air_supply_pressure->off:
     name: dry_air_supply_pressure->off
   dry_air_supply_pressure->on:
@@ -201,6 +209,8 @@ configs:
       - class: UDPReader
         kwargs:
           port: 51032
+    transforms:
+      - class: TimestampTransform
     writers:
       - class: LogfileWriter
         kwargs:
@@ -214,8 +224,8 @@ configs:
           writers:
             - class: UDPWriter
               kwargs:
-                destination: 172.16.29.250
-                port: 61400
+                destination: 172.16.29.254
+                port: 61401
   exhaust_pump_controller->off:
     name: exhaust_pump_controller->off
   exhaust_pump_controller->on:
@@ -224,6 +234,8 @@ configs:
       - class: UDPReader
         kwargs:
           port: 51043
+    transforms:
+      - class: TimestampTransform
     writers:
       - class: LogfileWriter
         kwargs:
@@ -237,8 +249,8 @@ configs:
           writers:
             - class: UDPWriter
               kwargs:
-                destination: 172.16.29.250
-                port: 61400
+                destination: 172.16.29.254
+                port: 61401
   ghg_bypass_pump_controller->off:
     name: ghg_bypass_pump_controller->off
   ghg_bypass_pump_controller->on:
@@ -247,6 +259,8 @@ configs:
       - class: UDPReader
         kwargs:
           port: 51042
+    transforms:
+      - class: TimestampTransform
     writers:
       - class: LogfileWriter
         kwargs:
@@ -260,8 +274,8 @@ configs:
           writers:
             - class: UDPWriter
               kwargs:
-                destination: 172.16.29.250
-                port: 61400
+                destination: 172.16.29.254
+                port: 61401
   ghg_manifold_pressure->off:
     name: ghg_manifold_pressure->off
   ghg_manifold_pressure->on:
@@ -270,6 +284,8 @@ configs:
       - class: UDPReader
         kwargs:
           port: 51022
+    transforms:
+      - class: TimestampTransform
     writers:
       - class: LogfileWriter
         kwargs:
@@ -283,8 +299,8 @@ configs:
           writers:
             - class: UDPWriter
               kwargs:
-                destination: 172.16.29.250
-                port: 61400
+                destination: 172.16.29.254
+                port: 61401
   ghg_manifold_trh->off:
     name: ghg_manifold_trh->off
   ghg_manifold_trh->on:
@@ -293,6 +309,8 @@ configs:
       - class: UDPReader
         kwargs:
           port: 51014
+    transforms:
+      - class: TimestampTransform
     writers:
       - class: LogfileWriter
         kwargs:
@@ -306,8 +324,8 @@ configs:
           writers:
             - class: UDPWriter
               kwargs:
-                destination: 172.16.29.250
-                port: 61400
+                destination: 172.16.29.254
+                port: 61401
   radiative_properties_bypass_mfc->off:
     name: radiative_properties_bypass_mfc->off
   radiative_properties_bypass_mfc->on:
@@ -316,6 +334,8 @@ configs:
       - class: UDPReader
         kwargs:
           port: 51004
+    transforms:
+      - class: TimestampTransform
     writers:
       - class: LogfileWriter
         kwargs:
@@ -329,8 +349,8 @@ configs:
           writers:
             - class: UDPWriter
               kwargs:
-                destination: 172.16.29.250
-                port: 61400
+                destination: 172.16.29.254
+                port: 61401
   radiative_properties_dry_air_mfc->off:
     name: radiative_properties_dry_air_mfc->off
   radiative_properties_dry_air_mfc->on:
@@ -339,6 +359,8 @@ configs:
       - class: UDPReader
         kwargs:
           port: 51003
+    transforms:
+      - class: TimestampTransform
     writers:
       - class: LogfileWriter
         kwargs:
@@ -352,8 +374,8 @@ configs:
           writers:
             - class: UDPWriter
               kwargs:
-                destination: 172.16.29.250
-                port: 61400
+                destination: 172.16.29.254
+                port: 61401
   radiative_properties_sample_line_trh->off:
     name: radiative_properties_sample_line_trh->off
   radiative_properties_sample_line_trh->on:
@@ -362,6 +384,8 @@ configs:
       - class: UDPReader
         kwargs:
           port: 51011
+    transforms:
+      - class: TimestampTransform
     writers:
       - class: LogfileWriter
         kwargs:
@@ -375,8 +399,8 @@ configs:
           writers:
             - class: UDPWriter
               kwargs:
-                destination: 172.16.29.250
-                port: 61400
+                destination: 172.16.29.254
+                port: 61401
   sizing_distribution_bypass_mfc->off:
     name: sizing_distribution_bypass_mfc->off
   sizing_distribution_bypass_mfc->on:
@@ -385,6 +409,8 @@ configs:
       - class: UDPReader
         kwargs:
           port: 51002
+    transforms:
+      - class: TimestampTransform
     writers:
       - class: LogfileWriter
         kwargs:
@@ -398,8 +424,8 @@ configs:
           writers:
             - class: UDPWriter
               kwargs:
-                destination: 172.16.29.250
-                port: 61400
+                destination: 172.16.29.254
+                port: 61401
   sizing_distribution_dry_air_mfc->off:
     name: sizing_distribution_dry_air_mfc->off
   sizing_distribution_dry_air_mfc->on:
@@ -408,6 +434,8 @@ configs:
       - class: UDPReader
         kwargs:
           port: 51001
+    transforms:
+      - class: TimestampTransform
     writers:
       - class: LogfileWriter
         kwargs:
@@ -421,8 +449,8 @@ configs:
           writers:
             - class: UDPWriter
               kwargs:
-                destination: 172.16.29.250
-                port: 61400
+                destination: 172.16.29.254
+                port: 61401
   sizing_distribution_sample_line_trh->off:
     name: sizing_distribution_sample_line_trh->off
   sizing_distribution_sample_line_trh->on:
@@ -431,6 +459,8 @@ configs:
       - class: UDPReader
         kwargs:
           port: 51012
+    transforms:
+      - class: TimestampTransform
     writers:
       - class: LogfileWriter
         kwargs:
@@ -444,5 +474,5 @@ configs:
           writers:
             - class: UDPWriter
               kwargs:
-                destination: 172.16.29.250
-                port: 61400
+                destination: 172.16.29.254
+                port: 61401

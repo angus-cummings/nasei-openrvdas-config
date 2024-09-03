@@ -1,6 +1,6 @@
 file_root: /data
-AAD_broadcast_ip: 172.16.29.250
-AAD_broadcast_port: 61400
+AAD_broadcast_ip: 172.16.29.254
+AAD_broadcast_port: 61401
 
 devices:
   # Aerosol Bypass Pump Controller

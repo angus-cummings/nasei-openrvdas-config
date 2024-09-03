@@ -35,6 +35,8 @@ configs:
           {% if devices[device]["eol"] %}
           eol: {{ devices[device]["eol"] }}
           {% endif %}
+    transforms:
+      - class: TimestampTransform
     writers:
       - class: LogfileWriter
         kwargs:
