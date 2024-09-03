@@ -1,4 +1,5 @@
-file_root: /data
+file_root: /data/raw/
+file_endurance: 365d
 AAD_broadcast_ip: 172.16.29.255
 AAD_broadcast_port: 61401
 

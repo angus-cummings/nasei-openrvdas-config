@@ -25,8 +25,11 @@ install_packages() {
 # Run the function
 install_packages
 
+# Drop tmpfiles conf where it belongs
+cp tmpfiles-conf/nasei-data-tmpfiles.conf /etc/tmpfiles.d/
+
 # Capture where we're running from
-script_dir=$(dirname "$(realpath "${BASH_SOURCE[0]}")")
+script_dir=$(dirname "$(realpath "${BASH_SOURCE[0]}")")/openrvdas-conf
 openrvdas_dir=/opt/openrvdas
 
 # Get OpenRVDAS from the DPC repo and run OpenRVDAS setup script.

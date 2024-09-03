@@ -11,9 +11,14 @@ if __name__ == '__main__':
     with open('nasei_port_definitions.yaml') as f:
         data = yaml.load(f, Loader=yaml.FullLoader)
 
-    template = env.get_template('template.jinja')
-
+    # Generate the OpenRVDAS conf
+    template = env.get_template('openrvdas-conf/template.jinja')
     config = template.render(data)
+    with open('openrvdas-conf/config.yaml', 'w') as f:
+        f.write(config)
 
-    with open('config.yaml', 'w') as f:
+    # Generate the tmpfiles conf
+    template = env.get_template('tmpfiles-conf/nasei-data-tmpfiles.jinja')
+    config = template.render(data)
+    with open('tmpfiles-conf/nasei-data-tmpfiles.conf', 'w') as f:
         f.write(config)
