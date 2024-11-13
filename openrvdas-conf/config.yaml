@@ -15,6 +15,18 @@ loggers:
     configs:
     - aerosol_manifold_trh->off
     - aerosol_manifold_trh->on
+  aerosol_manifold_water_detector:
+    configs:
+    - aerosol_manifold_water_detector->off
+    - aerosol_manifold_water_detector->on
+  aerosol_swirl_flowmeter:
+    configs:
+    - aerosol_swirl_flowmeter->off
+    - aerosol_swirl_flowmeter->on
+  butanol_chiller:
+    configs:
+    - butanol_chiller->off
+    - butanol_chiller->on
   dry_air_supply_dew_point:
     configs:
     - dry_air_supply_dew_point->off
@@ -31,6 +43,14 @@ loggers:
     configs:
     - ghg_bypass_pump_controller->off
     - ghg_bypass_pump_controller->on
+  ghg_chiller_1:
+    configs:
+    - ghg_chiller_1->off
+    - ghg_chiller_1->on
+  ghg_chiller_2:
+    configs:
+    - ghg_chiller_2->off
+    - ghg_chiller_2->on
   ghg_manifold_pressure:
     configs:
     - ghg_manifold_pressure->off
@@ -39,6 +59,22 @@ loggers:
     configs:
     - ghg_manifold_trh->off
     - ghg_manifold_trh->on
+  ghg_manifold_water_detector:
+    configs:
+    - ghg_manifold_water_detector->off
+    - ghg_manifold_water_detector->on
+  heated_bundles:
+    configs:
+    - heated_bundles->off
+    - heated_bundles->on
+  heated_inlet:
+    configs:
+    - heated_inlet->off
+    - heated_inlet->on
+  ozone_water_detector:
+    configs:
+    - ozone_water_detector->off
+    - ozone_water_detector->on
   radiative_properties_bypass_mfc:
     configs:
     - radiative_properties_bypass_mfc->off
@@ -51,6 +87,10 @@ loggers:
     configs:
     - radiative_properties_sample_line_trh->off
     - radiative_properties_sample_line_trh->on
+  radon_water_detector:
+    configs:
+    - radon_water_detector->off
+    - radon_water_detector->on
   sizing_distribution_bypass_mfc:
     configs:
     - sizing_distribution_bypass_mfc->off
@@ -63,40 +103,66 @@ loggers:
     configs:
     - sizing_distribution_sample_line_trh->off
     - sizing_distribution_sample_line_trh->on
+  vacuum_pump:
+    configs:
+    - vacuum_pump->off
+    - vacuum_pump->on
 
 modes:
   'off':
     aerosol_bypass_pump_controller:  aerosol_bypass_pump_controller->off
     aerosol_manifold_pressure:  aerosol_manifold_pressure->off
     aerosol_manifold_trh:  aerosol_manifold_trh->off
+    aerosol_manifold_water_detector:  aerosol_manifold_water_detector->off
+    aerosol_swirl_flowmeter:  aerosol_swirl_flowmeter->off
+    butanol_chiller:  butanol_chiller->off
     dry_air_supply_dew_point:  dry_air_supply_dew_point->off
     dry_air_supply_pressure:  dry_air_supply_pressure->off
     exhaust_pump_controller:  exhaust_pump_controller->off
     ghg_bypass_pump_controller:  ghg_bypass_pump_controller->off
+    ghg_chiller_1:  ghg_chiller_1->off
+    ghg_chiller_2:  ghg_chiller_2->off
     ghg_manifold_pressure:  ghg_manifold_pressure->off
     ghg_manifold_trh:  ghg_manifold_trh->off
+    ghg_manifold_water_detector:  ghg_manifold_water_detector->off
+    heated_bundles:  heated_bundles->off
+    heated_inlet:  heated_inlet->off
+    ozone_water_detector:  ozone_water_detector->off
     radiative_properties_bypass_mfc:  radiative_properties_bypass_mfc->off
     radiative_properties_dry_air_mfc:  radiative_properties_dry_air_mfc->off
     radiative_properties_sample_line_trh:  radiative_properties_sample_line_trh->off
+    radon_water_detector:  radon_water_detector->off
     sizing_distribution_bypass_mfc:  sizing_distribution_bypass_mfc->off
     sizing_distribution_dry_air_mfc:  sizing_distribution_dry_air_mfc->off
     sizing_distribution_sample_line_trh:  sizing_distribution_sample_line_trh->off
+    vacuum_pump:  vacuum_pump->off
   'on':
     aerosol_bypass_pump_controller:  aerosol_bypass_pump_controller->on
     aerosol_manifold_pressure:  aerosol_manifold_pressure->on
     aerosol_manifold_trh:  aerosol_manifold_trh->on
+    aerosol_manifold_water_detector:  aerosol_manifold_water_detector->on
+    aerosol_swirl_flowmeter:  aerosol_swirl_flowmeter->on
+    butanol_chiller:  butanol_chiller->on
     dry_air_supply_dew_point:  dry_air_supply_dew_point->on
     dry_air_supply_pressure:  dry_air_supply_pressure->on
     exhaust_pump_controller:  exhaust_pump_controller->on
     ghg_bypass_pump_controller:  ghg_bypass_pump_controller->on
+    ghg_chiller_1:  ghg_chiller_1->on
+    ghg_chiller_2:  ghg_chiller_2->on
     ghg_manifold_pressure:  ghg_manifold_pressure->on
     ghg_manifold_trh:  ghg_manifold_trh->on
+    ghg_manifold_water_detector:  ghg_manifold_water_detector->on
+    heated_bundles:  heated_bundles->on
+    heated_inlet:  heated_inlet->on
+    ozone_water_detector:  ozone_water_detector->on
     radiative_properties_bypass_mfc:  radiative_properties_bypass_mfc->on
     radiative_properties_dry_air_mfc:  radiative_properties_dry_air_mfc->on
     radiative_properties_sample_line_trh:  radiative_properties_sample_line_trh->on
+    radon_water_detector:  radon_water_detector->on
     sizing_distribution_bypass_mfc:  sizing_distribution_bypass_mfc->on
     sizing_distribution_dry_air_mfc:  sizing_distribution_dry_air_mfc->on
     sizing_distribution_sample_line_trh:  sizing_distribution_sample_line_trh->on
+    vacuum_pump:  vacuum_pump->on
 
 default_mode: "on"
 
@@ -108,7 +174,7 @@ configs:
     readers:
       - class: UDPReader
         kwargs:
-          port: 51041
+          port: 51045
     writers:
       - class: ComposedWriter
         kwargs:
@@ -136,7 +202,7 @@ configs:
     readers:
       - class: UDPReader
         kwargs:
-          port: 51021
+          port: 51025
     writers:
       - class: ComposedWriter
         kwargs:
@@ -180,6 +246,90 @@ configs:
             - class: PrefixTransform
               kwargs:
                 prefix: aerosol_manifold_trh
+          writers:
+            - class: UDPWriter
+              kwargs:
+                destination: 172.16.29.255
+                port: 61401
+  aerosol_manifold_water_detector->off:
+    name: aerosol_manifold_water_detector->off
+  aerosol_manifold_water_detector->on:
+    name: aerosol_manifold_water_detector->on
+    readers:
+      - class: UDPReader
+        kwargs:
+          port: 50201
+    writers:
+      - class: ComposedWriter
+        kwargs:
+          transforms:
+            - class: TimestampTransform
+          writers:
+            - class: LogfileWriter
+              kwargs:
+                filebase: /data/raw/aerosol_manifold_water_detector
+      - class: ComposedWriter
+        kwargs:
+          transforms:
+            - class: PrefixTransform
+              kwargs:
+                prefix: aerosol_manifold_water_detector
+          writers:
+            - class: UDPWriter
+              kwargs:
+                destination: 172.16.29.255
+                port: 61401
+  aerosol_swirl_flowmeter->off:
+    name: aerosol_swirl_flowmeter->off
+  aerosol_swirl_flowmeter->on:
+    name: aerosol_swirl_flowmeter->on
+    readers:
+      - class: UDPReader
+        kwargs:
+          port: 51048
+    writers:
+      - class: ComposedWriter
+        kwargs:
+          transforms:
+            - class: TimestampTransform
+          writers:
+            - class: LogfileWriter
+              kwargs:
+                filebase: /data/raw/aerosol_swirl_flowmeter
+      - class: ComposedWriter
+        kwargs:
+          transforms:
+            - class: PrefixTransform
+              kwargs:
+                prefix: aerosol_swirl_flowmeter
+          writers:
+            - class: UDPWriter
+              kwargs:
+                destination: 172.16.29.255
+                port: 61401
+  butanol_chiller->off:
+    name: butanol_chiller->off
+  butanol_chiller->on:
+    name: butanol_chiller->on
+    readers:
+      - class: UDPReader
+        kwargs:
+          port: 50213
+    writers:
+      - class: ComposedWriter
+        kwargs:
+          transforms:
+            - class: TimestampTransform
+          writers:
+            - class: LogfileWriter
+              kwargs:
+                filebase: /data/raw/butanol_chiller
+      - class: ComposedWriter
+        kwargs:
+          transforms:
+            - class: PrefixTransform
+              kwargs:
+                prefix: butanol_chiller
           writers:
             - class: UDPWriter
               kwargs:
@@ -248,7 +398,7 @@ configs:
     readers:
       - class: UDPReader
         kwargs:
-          port: 51043
+          port: 51047
     writers:
       - class: ComposedWriter
         kwargs:
@@ -276,7 +426,7 @@ configs:
     readers:
       - class: UDPReader
         kwargs:
-          port: 51042
+          port: 51046
     writers:
       - class: ComposedWriter
         kwargs:
@@ -297,6 +447,62 @@ configs:
               kwargs:
                 destination: 172.16.29.255
                 port: 61401
+  ghg_chiller_1->off:
+    name: ghg_chiller_1->off
+  ghg_chiller_1->on:
+    name: ghg_chiller_1->on
+    readers:
+      - class: UDPReader
+        kwargs:
+          port: 50214
+    writers:
+      - class: ComposedWriter
+        kwargs:
+          transforms:
+            - class: TimestampTransform
+          writers:
+            - class: LogfileWriter
+              kwargs:
+                filebase: /data/raw/ghg_chiller_1
+      - class: ComposedWriter
+        kwargs:
+          transforms:
+            - class: PrefixTransform
+              kwargs:
+                prefix: ghg_chiller_1
+          writers:
+            - class: UDPWriter
+              kwargs:
+                destination: 172.16.29.255
+                port: 61401
+  ghg_chiller_2->off:
+    name: ghg_chiller_2->off
+  ghg_chiller_2->on:
+    name: ghg_chiller_2->on
+    readers:
+      - class: UDPReader
+        kwargs:
+          port: 50215
+    writers:
+      - class: ComposedWriter
+        kwargs:
+          transforms:
+            - class: TimestampTransform
+          writers:
+            - class: LogfileWriter
+              kwargs:
+                filebase: /data/raw/ghg_chiller_2
+      - class: ComposedWriter
+        kwargs:
+          transforms:
+            - class: PrefixTransform
+              kwargs:
+                prefix: ghg_chiller_2
+          writers:
+            - class: UDPWriter
+              kwargs:
+                destination: 172.16.29.255
+                port: 61401
   ghg_manifold_pressure->off:
     name: ghg_manifold_pressure->off
   ghg_manifold_pressure->on:
@@ -304,7 +510,7 @@ configs:
     readers:
       - class: UDPReader
         kwargs:
-          port: 51022
+          port: 51026
     writers:
       - class: ComposedWriter
         kwargs:
@@ -348,6 +554,118 @@ configs:
             - class: PrefixTransform
               kwargs:
                 prefix: ghg_manifold_trh
+          writers:
+            - class: UDPWriter
+              kwargs:
+                destination: 172.16.29.255
+                port: 61401
+  ghg_manifold_water_detector->off:
+    name: ghg_manifold_water_detector->off
+  ghg_manifold_water_detector->on:
+    name: ghg_manifold_water_detector->on
+    readers:
+      - class: UDPReader
+        kwargs:
+          port: 50202
+    writers:
+      - class: ComposedWriter
+        kwargs:
+          transforms:
+            - class: TimestampTransform
+          writers:
+            - class: LogfileWriter
+              kwargs:
+                filebase: /data/raw/ghg_manifold_water_detector
+      - class: ComposedWriter
+        kwargs:
+          transforms:
+            - class: PrefixTransform
+              kwargs:
+                prefix: ghg_manifold_water_detector
+          writers:
+            - class: UDPWriter
+              kwargs:
+                destination: 172.16.29.255
+                port: 61401
+  heated_bundles->off:
+    name: heated_bundles->off
+  heated_bundles->on:
+    name: heated_bundles->on
+    readers:
+      - class: UDPReader
+        kwargs:
+          port: 51053
+    writers:
+      - class: ComposedWriter
+        kwargs:
+          transforms:
+            - class: TimestampTransform
+          writers:
+            - class: LogfileWriter
+              kwargs:
+                filebase: /data/raw/heated_bundles
+      - class: ComposedWriter
+        kwargs:
+          transforms:
+            - class: PrefixTransform
+              kwargs:
+                prefix: heated_bundles
+          writers:
+            - class: UDPWriter
+              kwargs:
+                destination: 172.16.29.255
+                port: 61401
+  heated_inlet->off:
+    name: heated_inlet->off
+  heated_inlet->on:
+    name: heated_inlet->on
+    readers:
+      - class: UDPReader
+        kwargs:
+          port: 51083
+    writers:
+      - class: ComposedWriter
+        kwargs:
+          transforms:
+            - class: TimestampTransform
+          writers:
+            - class: LogfileWriter
+              kwargs:
+                filebase: /data/raw/heated_inlet
+      - class: ComposedWriter
+        kwargs:
+          transforms:
+            - class: PrefixTransform
+              kwargs:
+                prefix: heated_inlet
+          writers:
+            - class: UDPWriter
+              kwargs:
+                destination: 172.16.29.255
+                port: 61401
+  ozone_water_detector->off:
+    name: ozone_water_detector->off
+  ozone_water_detector->on:
+    name: ozone_water_detector->on
+    readers:
+      - class: UDPReader
+        kwargs:
+          port: 50211
+    writers:
+      - class: ComposedWriter
+        kwargs:
+          transforms:
+            - class: TimestampTransform
+          writers:
+            - class: LogfileWriter
+              kwargs:
+                filebase: /data/raw/ozone_water_detector
+      - class: ComposedWriter
+        kwargs:
+          transforms:
+            - class: PrefixTransform
+              kwargs:
+                prefix: ozone_water_detector
           writers:
             - class: UDPWriter
               kwargs:
@@ -437,6 +755,34 @@ configs:
               kwargs:
                 destination: 172.16.29.255
                 port: 61401
+  radon_water_detector->off:
+    name: radon_water_detector->off
+  radon_water_detector->on:
+    name: radon_water_detector->on
+    readers:
+      - class: UDPReader
+        kwargs:
+          port: 50212
+    writers:
+      - class: ComposedWriter
+        kwargs:
+          transforms:
+            - class: TimestampTransform
+          writers:
+            - class: LogfileWriter
+              kwargs:
+                filebase: /data/raw/radon_water_detector
+      - class: ComposedWriter
+        kwargs:
+          transforms:
+            - class: PrefixTransform
+              kwargs:
+                prefix: radon_water_detector
+          writers:
+            - class: UDPWriter
+              kwargs:
+                destination: 172.16.29.255
+                port: 61401
   sizing_distribution_bypass_mfc->off:
     name: sizing_distribution_bypass_mfc->off
   sizing_distribution_bypass_mfc->on:
@@ -516,6 +862,34 @@ configs:
             - class: PrefixTransform
               kwargs:
                 prefix: sizing_distribution_sample_line_trh
+          writers:
+            - class: UDPWriter
+              kwargs:
+                destination: 172.16.29.255
+                port: 61401
+  vacuum_pump->off:
+    name: vacuum_pump->off
+  vacuum_pump->on:
+    name: vacuum_pump->on
+    readers:
+      - class: UDPReader
+        kwargs:
+          port: 51050
+    writers:
+      - class: ComposedWriter
+        kwargs:
+          transforms:
+            - class: TimestampTransform
+          writers:
+            - class: LogfileWriter
+              kwargs:
+                filebase: /data/raw/vacuum_pump
+      - class: ComposedWriter
+        kwargs:
+          transforms:
+            - class: PrefixTransform
+              kwargs:
+                prefix: vacuum_pump
           writers:
             - class: UDPWriter
               kwargs:
